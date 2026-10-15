@@ -378,3 +378,254 @@ blockquote {
 .reveal .slide-number {
   color: #fff;
 }
+
+/* Interactive theme visualization slide */
+.reveal .slides section.theme-slide,
+.reveal .slides section.category-slide  {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0.2em 0.1em;
+  overflow: hidden;
+}
+
+.reveal .theme-slide h2,
+.reveal .category-slide h2 {
+  font-size: 1.45em;
+  margin-bottom: 0.35em;
+}
+
+.reveal .theme-slide h2::after,
+.reveal .category-slide h2::after {
+  margin-top: 0.2em;
+}
+
+.reveal .theme-slide .eyebrow,
+.reveal .category-slide .eyebrow {
+  font-size: 0.38em;
+  margin-bottom: 0.35em;
+}
+
+.theme-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0.4em 0 0.65em;
+  font-size: 0.48em;
+}
+
+.theme-toolbar label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-toolbar select {
+  max-width: 300px;
+  min-width: 180px;
+  padding: 9px 34px 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  background: #ad0246;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toolbar select:focus-visible {
+  outline: 3px solid var(--wkid-yellow);
+  outline-offset: 3px;
+}
+
+.theme-toolbar select option {
+  background: #ad0246;
+  color: #fff;
+}
+
+.theme-total {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.theme-total span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85em;
+}
+
+.theme-total strong {
+  color: var(--wkid-yellow);
+  font-size: 1.55em;
+  line-height: 1.1;
+}
+
+.theme-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.theme-chart-panel {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(70, 0, 30, 0.16);
+}
+
+.theme-chart-panel .chart-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0 4px;
+}
+
+.reveal .theme-chart-panel h3 {
+  margin: 0;
+  font-size: 0.55em;
+  color: #fff;
+}
+
+.chart-heading span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+#theme-timeline {
+  width: 100%;
+  height: 440px;
+}
+
+#theme-pie {
+  width: 100%;
+  height: 340px;
+}
+
+.theme-pie-note {
+  margin: 0 !important;
+  margin-top: 5.5em !important;
+  padding: 0 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.theme-error {
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  color: #fff;
+  background: rgba(70, 0, 30, 0.3);
+  font-size: 0.45em;
+}
+
+.theme-error[hidden] {
+  display: none;
+}
+
+/* Keep Plotly's interactive toolbar visible and legible. */
+.theme-slide .modebar {
+  opacity: 0.65;
+}
+
+.theme-slide .modebar:hover {
+  opacity: 1;
+}
+
+/* Adjust the dashboard for narrower screens. */
+@media (max-width: 900px) {
+  .theme-dashboard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  #theme-timeline {
+    height: 300px;
+  }
+
+  #theme-pie {
+    height: 240px;
+  }
+
+  .theme-pie-panel {
+    display: none;
+  }
+}
+
+/* Category dashboard */
+.category-dashboard {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.category-chart-panel {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(70, 0, 30, 0.16);
+}
+
+.category-chart-panel .chart-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0 4px;
+}
+
+.reveal .category-chart-panel h3 {
+  margin: 0;
+  font-size: 0.55em;
+  color: #fff;
+}
+
+.category-chart-panel #category-timeline {
+  width: 100%;
+  height: 440px;
+}
+
+.category-chart-panel #category-pie {
+  width: 100%;
+  height: 340px;
+}
+
+.category-pie-note {
+  margin: 0 !important;
+  margin-top: 5.5em !important;
+  padding: 0 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.category-error {
+  margin-top: 1em !important;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.45em !important;
+}
+
+/* Stack charts on narrow screens */
+@media (max-width: 900px) {
+  .category-dashboard {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .category-chart-panel #category-timeline {
+    height: 300px;
+  }
+
+  .category-chart-panel #category-pie {
+    height: 240px;
+  }
+
+  .category-pie-panel {
+    display: none;
+  }
+}
