@@ -111,6 +111,107 @@
           </ul>
         </section>
 
+        <!-- Interactive visitor statistics -->
+        <section id="theme-slide" class="theme-slide">
+          <span class="eyebrow">Interactieve data</span>
+          <h2>Bezoekers per thema</h2>
+
+          <div class="theme-dashboard">
+            <!-- Timeline chart -->
+            <div class="theme-chart-panel">
+              <div class="chart-heading">
+                <h3>Bezoekers over tijd</h3>
+                <span>Wit = geselecteerd · Transparant = overige thema's</span>
+              </div>
+
+              <div
+                id="theme-timeline"
+                role="img"
+                aria-label="Interactieve lijngrafiek met bezoekers per thema over tijd"
+              ></div>
+            </div>
+
+            <!-- Interactive pie chart -->
+            <div class="theme-chart-panel theme-pie-panel">
+              <div class="chart-heading">
+                <h3>Verdeling</h3>
+                <span>Verdeling van alle thema-bezoeken</span>
+              </div>
+
+              <div
+                id="theme-pie"
+                aria-label="Klik op een segment om een thema te selecteren"
+              ></div>
+
+              <p class="theme-pie-note">
+                Klik op een segment om een thema te selecteren.
+                <br />
+                Geel = geselecteerd · Roze omlijnd = overige thema's.
+                <br />
+                Beweeg over een segment voor de exacte aantallen.
+              </p>
+            </div>
+          </div>
+
+          <p
+            id="theme-error"
+            class="theme-error"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
+        </section>
+
+        <!-- Interactive category statistics -->
+        <section id="category-slide" class="category-slide">
+          <span class="eyebrow">Interactieve data</span>
+          <h2>Bezoekers per categorie</h2>
+
+          <div class="category-dashboard">
+            <!-- Timeline -->
+            <div class="category-chart-panel">
+              <div class="chart-heading">
+                <h3>Bezoekers over tijd</h3>
+                <span>Wit = geselecteerd · Transparant = overige categorieën</span>
+              </div>
+
+              <div
+                id="category-timeline"
+                aria-label="Bezoekers per categorie over tijd"
+              ></div>
+            </div>
+
+            <!-- Pie chart -->
+            <div class="category-chart-panel category-pie-panel">
+              <div class="chart-heading">
+                <h3>Verdeling</h3>
+                <span>Aandeel van alle categoriebezoeken</span>
+              </div>
+
+              <div
+                id="category-pie"
+                aria-label="Klik op een segment om een categorie te selecteren"
+              ></div>
+
+              <p class="category-pie-note">
+                Klik op een segment om een categorie te selecteren.
+                <br />
+                Geel = geselecteerd · Elke kleur staat voor een categorie.
+                <br />
+                Beweeg over een segment voor de exacte aantallen.
+              </p>
+            </div>
+          </div>
+
+          <p
+            id="category-error"
+            class="category-error"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
+        </section>
+
         <!-- Afsluiting -->
         <section
           class="blue-bg"
@@ -128,6 +229,7 @@
       </div>
     </div>
 
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
     <script>
       Reveal.initialize({
@@ -141,5 +243,7 @@
         progress: true,
       });
     </script>
+    <script src="webtraffic/theme_charts.js"></script>
+    <script src="webtraffic/category_charts.js"></script>
   </body>
 </html>
