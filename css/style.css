@@ -213,18 +213,10 @@ section.blue-bg .eyebrow {
   margin-top: 1em;
 }
 .card {
-  background: var(--color-blue-50);
-  border: 1px solid var(--color-blue-100);
-  border-top: 4px solid var(--color-blue-500);
+  background: var(--color-white-100);
   border-radius: 10px;
   padding: 20px 24px;
   font-size: 0.7em;
-}
-.card:nth-child(2) {
-  border-top-color: var(--wkid-pink);
-}
-.card:nth-child(3) {
-  border-top-color: var(--wkid-yellow);
 }
 .card h3 {
   font-size: 1.2em;
@@ -288,17 +280,15 @@ blockquote {
 
 .logo {
   position: fixed;
-  left: 28px;
-  bottom: 22px;
+  left: 80px;
+  bottom: 34px;
   z-index: 20;
-  font-family: var(--r-heading-font);
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--color-blue-900);
-  letter-spacing: 0.02em;
-}
-.logo span {
-  color: var(--wkid-pink);
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  -webkit-mask: url("../img/logo.svg") no-repeat left bottom / contain;
+  mask: url("../img/logo.svg") no-repeat left bottom / contain;
+  transition: background-color 0.4s ease;
 }
 .reveal .progress {
   color: var(--wkid-pink);
@@ -364,13 +354,6 @@ blockquote {
   background: rgba(255, 255, 255, 0.14) !important;
   border-left-color: var(--wkid-yellow);
 }
-.logo,
-.logo span {
-  color: #fff;
-}
-.logo span {
-  color: var(--wkid-yellow);
-}
 .reveal .progress {
   color: #fff;
 }
@@ -381,11 +364,11 @@ blockquote {
 
 /* Interactive theme visualization slide */
 .reveal .slides section.theme-slide,
-.reveal .slides section.category-slide  {
+.reveal .slides section.category-slide {
   height: 100%;
   box-sizing: border-box;
-  padding: 0.2em 0.1em;
-  overflow: hidden;
+  padding: 0.2em 0.1em 110px;
+  overflow: visible; /* let chart tooltips escape the slide box */
 }
 
 .reveal .theme-slide h2,
@@ -468,9 +451,6 @@ blockquote {
 .theme-chart-panel {
   min-width: 0;
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  background: rgba(70, 0, 30, 0.16);
 }
 
 .theme-chart-panel .chart-heading {
@@ -566,7 +546,6 @@ blockquote {
   padding: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  background: rgba(70, 0, 30, 0.16);
 }
 
 .category-chart-panel .chart-heading {
@@ -628,4 +607,208 @@ blockquote {
   .category-pie-panel {
     display: none;
   }
+}
+/* White chart slides: whole page white, thick rounded pink frame on top */
+html,
+body,
+.reveal-viewport {
+  transition: background-color 0.4s ease;
+}
+html.white-page,
+html.white-page body,
+html.white-page .reveal-viewport {
+  background: #fff !important;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 22px;
+  z-index: 100;
+  border-radius: 32px;
+  box-shadow: 0 0 0 100vmax var(--wkid-pink);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+html.white-page body::after {
+  opacity: 1;
+}
+
+.theme-slide,
+.category-slide {
+  color: #1f1f1f;
+}
+.reveal .theme-slide h2,
+.reveal .category-slide h2 {
+  color: var(--wkid-pink);
+}
+.reveal .theme-slide h2::after,
+.reveal .category-slide h2::after {
+  background: linear-gradient(
+    to right,
+    var(--wkid-pink),
+    var(--color-blue-500)
+  );
+}
+.theme-slide .eyebrow,
+.category-slide .eyebrow {
+  color: var(--color-blue-700);
+}
+.reveal .theme-chart-panel h3,
+.reveal .category-chart-panel h3 {
+  color: var(--color-blue-900);
+}
+.theme-chart-panel .chart-heading span,
+.category-chart-panel .chart-heading span,
+.theme-pie-note,
+.category-pie-note {
+  color: var(--gray-600);
+}
+.theme-error,
+.category-error {
+  color: var(--wkid-red-dark, #aa1700);
+  background: #ffe9e6;
+  border-color: #ffc5bd;
+}
+
+/* Keep the chrome legible on the white slides */
+html.white-page .logo {
+  background-color: var(--wkid-pink);
+}
+html.white-page .reveal .controls,
+html.white-page .reveal .slide-number {
+  color: var(--wkid-pink);
+}
+
+/* Let Plotly hover tooltips extend beyond the chart and its panels */
+.theme-chart-panel,
+.category-chart-panel,
+#theme-timeline,
+#theme-pie,
+#category-timeline,
+#category-pie,
+.theme-slide .js-plotly-plot .plotly,
+.category-slide .js-plotly-plot .plotly,
+.theme-slide .svg-container,
+.category-slide .svg-container {
+  overflow: visible !important;
+}
+.theme-slide .main-svg,
+.category-slide .main-svg {
+  overflow: visible !important;
+}
+.theme-slide .hoverlayer,
+.category-slide .hoverlayer {
+  z-index: 10;
+}
+
+/* Extra room at the bottom for the logo */
+.reveal .slides section {
+  box-sizing: border-box;
+  padding-bottom: 110px;
+}
+
+/* Map slide: the iframe fills the page; the pink frame is drawn on top */
+.reveal .slides section.map-slide {
+  padding: 0;
+}
+.reveal .backgrounds iframe {
+  border: 0;
+}
+
+/* Website overview: four blocks in a 2x2 grid */
+.cards.cards-4 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+.cards-4 .card {
+  font-size: 0.8em;
+  padding: 24px 28px;
+}
+.cards-4 .card:nth-child(1) {
+  border-top-color: #fff;
+}
+.cards-4 .card:nth-child(2) {
+  border-top-color: var(--wkid-yellow);
+}
+.cards-4 .card:nth-child(3) {
+  border-top-color: var(--color-blue-900);
+}
+.cards-4 .card:nth-child(4) {
+  border-top-color: var(--wkid-yellow-light);
+}
+
+/* Actieagenda slide: widget in a panel, its own top 100px hidden */
+.widget-panel {
+  height: 440px;
+  padding: 0;
+  overflow: hidden !important;
+}
+.widget-panel iframe {
+  display: block;
+  width: 100%;
+  height: calc(100% + 100px);
+  margin-top: -100px;
+  border: 0;
+}
+
+/* Chart / agenda slides: content fills the full slide height */
+.reveal .slides section.theme-slide,
+.reveal .slides section.category-slide {
+  display: flex !important; /* Reveal sets an inline display:block */
+  flex-direction: column;
+  padding-bottom: 28px;
+}
+.theme-slide > h2,
+.category-slide > h2 {
+  flex: none;
+}
+.theme-dashboard,
+.category-dashboard,
+.widget-panel {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.theme-dashboard,
+.category-dashboard {
+  grid-template-rows: minmax(0, 1fr);
+}
+.theme-chart-panel,
+.category-chart-panel {
+  display: flex;
+  flex-direction: column;
+}
+.theme-chart-panel > .chart-heading,
+.category-chart-panel > .chart-heading,
+.theme-pie-note,
+.category-pie-note {
+  flex: none;
+}
+#theme-timeline,
+#theme-pie,
+#category-timeline,
+.category-chart-panel #category-timeline,
+.category-chart-panel #category-pie {
+  flex: 1 1 0;
+  min-height: 0;
+  height: auto;
+}
+.theme-pie-note,
+.category-pie-note {
+  margin-top: 0.5em !important;
+}
+.widget-panel {
+  height: auto;
+}
+
+/* Subtitle under a slide heading */
+.reveal .subtitle {
+  margin: -0.2em 0 0.8em;
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.9);
+}
+.reveal .card em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--wkid-yellow);
 }

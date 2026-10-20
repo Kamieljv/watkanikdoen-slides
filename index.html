@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>Wat kan ik doen?</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,100 +21,68 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="logo">WAT KAN IK <span>DOEN</span></div>
+    <div class="logo" role="img" aria-label="Wat kan ik doen"></div>
 
     <div class="reveal">
       <div class="slides">
         <!-- Titel -->
-        <section
-          class="blue-bg"
-        >
-          <span class="eyebrow">Presentatie</span>
+        <section class="blue-bg">
           <h1>Wat kan ik doen?</h1>
-          <p>Kleine stappen, <strong>grote impact</strong>.</p>
-          <p>
-            <a class="btn white" href="#/2">Start</a>
-            <a class="btn secondary-white" href="#/6">Naar de samenvatting</a>
-          </p>
+          <p>Actie voor een rechtvaardigere wereld</p>
         </section>
 
-        <!-- Agenda -->
-        <section>
-          <h2>Agenda</h2>
-          <ol>
-            <li class="fragment">Waarom dit ertoe doet</li>
-            <li class="fragment">Drie manieren om te beginnen</li>
-            <li class="fragment">De cijfers</li>
-            <li class="fragment">Jouw eerste stap</li>
-          </ol>
-        </section>
-
-        <!-- Sectie -->
-        <section
-          class="blue-bg"
-        >
-          <span class="eyebrow">Deel 1</span>
-          <h2>Waarom dit ertoe doet</h2>
-          <p>Een korte introductie van het probleem.</p>
-        </section>
-
-        <!-- Cards -->
-        <section>
-          <h2>Drie manieren om te beginnen</h2>
-          <div class="cards">
+        <!-- Website overview -->
+        <section class="website-slide">
+          <h2>Wat vind je op onze website?</h2>
+          <div class="cards cards-4">
             <div class="card">
-              <h3>Informeer</h3>
-              <p>Zoek uit wat er speelt en deel dat met mensen om je heen.</p>
+              <h3>Acties</h3>
+              <p>
+                Een overzicht van demonstraties en andere acties in 17 thema's
+              </p>
             </div>
             <div class="card">
-              <h3>Doe mee</h3>
-              <p>Sluit je aan bij een bestaande actie of groep in je buurt.</p>
+              <h3>Organizers</h3>
+              <p>
+                Een lijst van 341 organisatoren van acties, waar jij je bij kunt
+                aansluiten
+              </p>
             </div>
             <div class="card">
-              <h3>Start zelf</h3>
-              <p>Begin klein, bouw op en nodig anderen uit om mee te doen.</p>
+              <h3>ActieWijzer</h3>
+              <p>
+                Een advies voor wat voor soort actie bij jou past, op basis van
+                een korte vragenlijst
+              </p>
+            </div>
+            <div class="card">
+              <h3>Boeken</h3>
+              <p>
+                Een collectie aan boeken die jou helpen de wereld beter te
+                begrijpen
+              </p>
             </div>
           </div>
         </section>
 
-        <!-- Stats -->
-        <section>
-          <h2>De cijfers</h2>
-          <div class="stats">
-            <div class="stat">
-              <div class="num">72%</div>
-              <div class="lbl">wil iets doen</div>
-            </div>
-            <div class="stat">
-              <div class="num">1 op 3</div>
-              <div class="lbl">weet niet waar te beginnen</div>
-            </div>
-            <div class="stat">
-              <div class="num">5 min</div>
-              <div class="lbl">is genoeg voor een eerste stap</div>
-            </div>
-          </div>
-          <div class="alert alert-success">
-            Voorbeeldcijfers — vervang door je eigen data.
-          </div>
-        </section>
+        <!-- Actieagenda: embedded agenda widget in a panel -->
+        <section id="agenda" class="agenda-slide theme-slide chart-slide">
+          <h2>Actieagenda</h2>
 
-        <!-- Quote + lijst -->
-        <section>
-          <h2>Waar het om draait</h2>
-          <blockquote>
-            Je hoeft niet alles te doen, maar je kunt wel iets doen.
-          </blockquote>
-          <ul style="margin-top: 1em">
-            <li class="fragment">Begin bij wat <strong>dichtbij</strong> is</li>
-            <li class="fragment">Maak het <strong>concreet</strong></li>
-            <li class="fragment">Doe het <strong>samen</strong></li>
-          </ul>
+          <div class="theme-chart-panel widget-panel">
+            <iframe
+              data-src="https://watkanikdoen.nl/widget?show_past=false"
+              title="Actieagenda"
+            ></iframe>
+          </div>
         </section>
 
         <!-- Interactive visitor statistics -->
-        <section id="theme-slide" class="theme-slide">
-          <span class="eyebrow">Interactieve data</span>
+        <section
+          id="theme-slide"
+          class="theme-slide chart-slide"
+          data-state="white-slide"
+        >
           <h2>Bezoekers per thema</h2>
 
           <div class="theme-dashboard">
@@ -121,7 +90,10 @@
             <div class="theme-chart-panel">
               <div class="chart-heading">
                 <h3>Bezoekers over tijd</h3>
-                <span>Wit = geselecteerd · Transparant = overige thema's</span>
+                <span
+                  >Dikke lijn = geselecteerd · Doorzichtig = overige
+                  thema's</span
+                >
               </div>
 
               <div
@@ -142,14 +114,6 @@
                 id="theme-pie"
                 aria-label="Klik op een segment om een thema te selecteren"
               ></div>
-
-              <p class="theme-pie-note">
-                Klik op een segment om een thema te selecteren.
-                <br />
-                Geel = geselecteerd · Roze omlijnd = overige thema's.
-                <br />
-                Beweeg over een segment voor de exacte aantallen.
-              </p>
             </div>
           </div>
 
@@ -163,8 +127,11 @@
         </section>
 
         <!-- Interactive category statistics -->
-        <section id="category-slide" class="category-slide">
-          <span class="eyebrow">Interactieve data</span>
+        <section
+          id="category-slide"
+          class="category-slide chart-slide"
+          data-state="white-slide"
+        >
           <h2>Bezoekers per categorie</h2>
 
           <div class="category-dashboard">
@@ -172,7 +139,9 @@
             <div class="category-chart-panel">
               <div class="chart-heading">
                 <h3>Bezoekers over tijd</h3>
-                <span>Wit = geselecteerd · Transparant = overige categorieën</span>
+                <span
+                  >Roze = geselecteerd · Blauw/grijs = overige categorieën</span
+                >
               </div>
 
               <div
@@ -196,7 +165,7 @@
               <p class="category-pie-note">
                 Klik op een segment om een categorie te selecteren.
                 <br />
-                Geel = geselecteerd · Elke kleur staat voor een categorie.
+                Roze = geselecteerd · Segmenten staan van groot naar klein.
                 <br />
                 Beweeg over een segment voor de exacte aantallen.
               </p>
@@ -212,19 +181,44 @@
           ></p>
         </section>
 
-        <!-- Afsluiting -->
+        <!-- Map: full-screen interactive iframe inside the pink frame -->
         <section
-          class="blue-bg"
-        >
-          <span class="eyebrow">Samenvatting</span>
-          <h2>Jouw eerste stap</h2>
-          <p>Kies er één en doe die <strong>vandaag</strong>.</p>
-          <p>
-            <a class="btn white" href="https://watkanikdoen.nl"
-              >watkanikdoen.nl</a
-            >
-            <a class="btn secondary-white" href="#/0">Terug naar begin</a>
+          id="map"
+          class="map-slide chart-slide"
+          data-background-iframe="https://watkanikdoen.nl/kaart"
+          data-background-interactive
+          data-preload
+          data-autoslide="60000"
+        ></section>
+
+        <!-- Call for volunteers -->
+        <section class="website-slide help-slide">
+          <h2>Wil je ons helpen?</h2>
+          <p class="subtitle">
+            We zoeken hulp bij allerlei verschillende taken, vanaf 2 uur per
+            week
           </p>
+          <div class="cards cards-4">
+            <div class="card">
+              <h3>Actiescout</h3>
+              <p>Vul onze agenda met nieuwe acties</p>
+            </div>
+            <div class="card">
+              <h3>Boekenworm</h3>
+              <p>Ga op zoek naar boeken die mensen kunnen <em>activeren</em></p>
+            </div>
+            <div class="card">
+              <h3>Social butterfly</h3>
+              <p>Geef onze socials nieuwe energie</p>
+            </div>
+            <div class="card">
+              <h3>Tekstentijger</h3>
+              <p>
+                Schrijf mee aan onze nieuwsbrief en het Handboek voor
+                Activisme
+              </p>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -234,16 +228,48 @@
     <script>
       Reveal.initialize({
         hash: true,
-        slideNumber: "c/t",
         width: 1280,
         height: 720,
         margin: 0.08,
-        transition: "slide",
+        transition: "none",
         controls: true,
-        progress: true,
+        autoSlide: 5000,
+        loop: true,
+      });
+
+      // Chart slides turn the whole page white (see .white-page in CSS).
+      function syncPageTheme(slide) {
+        document.documentElement.classList.toggle(
+          "white-page",
+          !!slide && slide.classList.contains("chart-slide"),
+        );
+      }
+      Reveal.on("ready", (e) => syncPageTheme(e.currentSlide));
+      Reveal.on("slidechanged", (e) => syncPageTheme(e.currentSlide));
+
+      // The map iframe is cross-origin, so we can't disable its keyboard
+      // handling. After a click in the map the iframe holds keyboard focus;
+      // give it back to the deck once the mouse has been idle for a moment.
+      // (Taking focus immediately would cancel an in-progress drag.)
+      const deck = document.querySelector(".reveal");
+      deck.tabIndex = -1;
+      const FOCUS_RETURN_DELAY = 2500;
+      let reclaimTimer = null;
+
+      function reclaimFocus() {
+        const active = document.activeElement;
+        if (active && active.tagName === "IFRAME") {
+          active.blur();
+          window.focus();
+          deck.focus({ preventScroll: true });
+        }
+      }
+      window.addEventListener("blur", () => {
+        clearTimeout(reclaimTimer);
+        reclaimTimer = setTimeout(reclaimFocus, FOCUS_RETURN_DELAY);
       });
     </script>
-    <script src="webtraffic/theme_charts.js"></script>
-    <script src="webtraffic/category_charts.js"></script>
+    <script src="js/theme_charts.js"></script>
+    <script src="js/category_charts.js"></script>
   </body>
 </html>
